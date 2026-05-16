@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base Reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #F4F7FB;
+  color: #29262d;
+  font-family: 'Hind Siliguri', sans-serif;
+  min-height: 100vh;
+}
+
+/* ─── Typography Utilities ───────────────────────────────── */
+.font-bengali  { font-family: 'Hind Siliguri', sans-serif; }
+.font-data     { font-family: 'Poppins', sans-serif; }
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* ─── Mint Button Base ───────────────────────────────────── */
+.btn-mint {
+  @apply bg-brand-mint text-white font-data font-semibold text-sm
+         px-5 py-2.5 rounded-xl transition-all duration-200
+         hover:shadow-lift hover:-translate-y-0.5 active:translate-y-0 active:shadow-card;
+  /* Never drops opacity — uses lift + brightness instead */
+  filter: brightness(1);
+}
+.btn-mint:hover { filter: brightness(1.06); }
+
+/* ─── Card Base ──────────────────────────────────────────── */
+.card {
+  @apply bg-white rounded-2xl shadow-card p-5;
+}
+
+/* ─── Page Transition Wrapper ────────────────────────────── */
+.page-wrapper {
+  @apply w-full min-h-full;
+}
+
+/* ─── Progress Ring ──────────────────────────────────────── */
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* ─── Mobile bottom nav safe area ───────────────────────── */
+.bottom-nav {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
